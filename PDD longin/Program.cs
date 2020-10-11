@@ -41,11 +41,6 @@ namespace PDD_longin
         }
         static void Main(string[] args)
         {
-            string r = File.ReadAllText("../../st.txt");
-            // testAsync();
-            var a =
-            Console.WriteLine(a.Value);
-            Console.ReadKey();
 
         }
     }
