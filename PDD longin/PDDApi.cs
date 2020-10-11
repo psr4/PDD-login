@@ -513,10 +513,10 @@ namespace PDD_longin
 
         public async Task<string> QueryOrderListAsync(QueryOrderType Type)
         {
-            List<string> channel_list = new List<string>( { "9", "30", "31", "35", "38", "52", "97", "122", "135", "322", " - 1" });
-            var r = await Session.Request(string.Format("proxy/api/api/aristotle/order_list?pdduid={0}", token.uid))
-                .PostJsonAsync(
-                new
+            string[] channel_list = { "9", "30", "31", "35", "38", "52", "97", "122", "135", "322", " - 1" };
+            var r = await Session.Request(string.Format("proxy/api/api/aristotle/order_list?pdduid={0}", token.uid)).PostStringAsync(
+
+                JsonConvert.SerializeObject(new
                 {
                     timeout = 1300,
                     type = Type.ToString(),
@@ -524,7 +524,9 @@ namespace PDD_longin
                     origin_host_name = "mobile.yangkeduo.com",
                     pay_channel_list = channel_list,
                     size = 10
-                });
+                })
+
+                ); ;
             return await r.Content.ReadAsStringAsync();
         }
         public async Task<string> Order(string _rank_id ,string sku_id,string group_id, string goods_id, string goods_number, string page_from ,string refer_page_id ,string refer_page_sn)
