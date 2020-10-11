@@ -12,6 +12,8 @@ using Flurl;
 using Flurl.Http;
 using System.Net;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
+
 namespace PDD_longin
 {
 
@@ -39,10 +41,10 @@ namespace PDD_longin
         }
         static void Main(string[] args)
         {
-
-            testAsync();
-
-
+            string r = File.ReadAllText("../../st.txt");
+            // testAsync();
+            var a =
+            Console.WriteLine(a.Value);
             Console.ReadKey();
 
         }

@@ -11,6 +11,7 @@ using System.Net;
 using Newtonsoft.Json;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace PDD_longin
 {
@@ -536,7 +537,8 @@ namespace PDD_longin
                                                                     &goods_number={4}&page_from={5}&refer_page_element=open_btn&source_channel=0
                                                                     &refer_page_name=goods_detail&refer_page_id={6}&refer_page_sn={7}",
                                                                     _rank_id, sku_id, group_id, goods_id, goods_number, page_from, refer_page_id, refer_page_sn);
-            var Store =( await Session.Request(url).GetJsonAsync<Order>()).store;
+            var r =  ( await Session.Request(url).GetStringAsync());
+            var Store = JsonConvert.DeserializeObject<Store>(Regex.Match(r, "rawData=({.*?});").Groups[1].Value);
             var post = new Order_Forms();
             post.activity_id = Store.goodsInfo.activityId; 
             post.anti_content =(string) jsEngine.CallFunction("get_anti_content", "submit-button", "http://mobile.yangkeduo.com/" + url, _nano_fp, api_uid, server_time);
