@@ -41,7 +41,7 @@ namespace PDD_longin
         }
         static void Main(string[] args)
         {
-
+            Console.ReadKey();
         }
     }
 }
