@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDD longin", "PDD longin\PDD longin.csproj", "{F5810769-7D38-46F9-86E2-A87186B5169D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDD login", "PDD longin\PDD login.csproj", "{F5810769-7D38-46F9-86E2-A87186B5169D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
